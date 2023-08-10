@@ -43,8 +43,10 @@ jobs:
         env: 
           IMAGE_VERSION: "0.5.${{ github.run_number }}"      
         run: |
+          npm install
           npx vite build
           cd cdk
+          npm install
           npx cdk deploy --all
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
